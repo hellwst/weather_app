@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewpo§rt"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Forecast</title>
+        
+
+        <link rel="stylesheet" type="text/css" href="src/styles.css" />
+    </head>
+    <body>
+        <header class="header">
+            <nav class="main-nav">
+                <div class="main-nav__container">
+                    <a href="index.html" id="main-nav__logo">
+                        <img src="src/img/weather_icon3.png" alt="Weather Forecast Main Icon from dribbble.com" />
+                    </a>
+                    <ul>
+                        <li class="main-nav__item">
+                            <a href="index.html" class="main-nav__link"
+                                >Prognoza</a
+                            >
+                        </li>
+                        <li class="main-nav__item">
+                            <a href="o_aplikacji.html" class="main-nav__link">O aplikacji</a>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main class="content">
+            <form class="content__box search-form__wrapper">
+                <input id="js_search-input" class="search-form__input" placeholder="Tutaj wpisz nazwę miasta" />
+                <button type="button" id="js_search-btn" class="search-form__button">Szukaj</button>
+            </form>
+            <section class="content__box results__content">
+                <p id="js_instruction" class="text instruction show">
+                    Wpisz nazwę miasta i naciśnij Szukaj.
+                </p>
+                <p class="text error" id="js_error-msg">Nie znaleziono podanego miasta.</p>
+                <div class="loader" id="js_loader"></div>
+                <div id="js_results" class="results__data-wrapper">
+                    <div class="results__weather-wrapper">
+                        <h2 class="results__header"></h2>
+                        <img src="" id="js_current-weather-icon" />
+                        <p class="text">
+                            Temperatura:
+                            <span id="js_current_weather_temp"></span>
+                        </p>
+                        <p class="text">
+                            Temperatura odczuwalna:
+                            <span id="js_current_weather_tempfeel"></span>
+                        </p>
+                        <p class="text">
+                            Ciśnienie:
+                            <span id="js_current_weather_pressure"></span>
+                        </p>
+                        <p class="text">
+                            Suma opadów deszczu w ciągu ostatnich 3h:
+                            <span id="js_current_weather_rainsum"></span>
+                        </p>
+                        <p class="text">
+                                Zachmurzenie:
+                                <span id="js_current_weather_cloudiness"></span>
+                        </p>
+                        <p class="text">
+                                Prędkość wiatru:
+                                <span id="js_current_weather_windspeed"></span>
+                        </p>
+                        <p class="text">
+                                Wilgotność:
+                                <span id="js_current_weather_humidity"></span>
+                        </p>
+                    </div>
+                    <div class="results__weather-wrapper">
+                        <h2 class="results__header">
+                            Prognoza pogody na 5 dni
+                        </h2>
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <script src="src/app.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    </body>
+</html>
