@@ -13,7 +13,7 @@ const dataTemp = document.getElementById("js_current_weather_temp");
 const dataTempFeel = document.getElementById("js_current_weather_tempfeel");
 const loaderElement = document.getElementById("js_loader");
 const dataPressure = document.getElementById("js_current_weather_pressure");
-const dataRain = document.getElementById("js_current_weather_rainsum");
+//const dataRain = document.getElementById("js_current_weather_rainsum");
 const dataCloudiness = document.getElementById("js_current_weather_cloudiness");
 const dataWindSpeed = document.getElementById("js_current_weather_windspeed");
 const dataHumidity = document.getElementById("js_current_weather_humidity");
@@ -60,7 +60,7 @@ function showCurrentWeather(list) {
     const temp = current.main.temp;
     const tempFeel = current.main.feels_like;
     const pressure = current.main.pressure;
-    const rain = current.rain['3h'];
+    //const rain = current.rain['3h'];
     const cloudiness = current.clouds.all;
     const wind = current.wind.speed;
     const humidity = current.main.humidity;
@@ -71,7 +71,7 @@ function showCurrentWeather(list) {
     dataTemp.textContent = `${Math.round(temp)}\xB0C`;
     dataTempFeel.textContent = `${Math.round(tempFeel)}\xB0C`;
     dataPressure.textContent = `${pressure} hPa`;
-    dataRain.textContent = `${rain} mm`;
+    //dataRain.textContent = `${rain} mm`;
     dataCloudiness.textContent = `${cloudiness}%`;
     dataWindSpeed.textContent = `${Math.round(wind * 3.6)} km/h`;
     dataHumidity.textContent = `${humidity}%`
@@ -85,7 +85,6 @@ function showForecast(list) {
         dt_txtValue.push(el.dt_txt);
         tempList.push(Math.round(el.main.temp));
     });
-    console.log(dt_txtValue, tempList);
     // wykres z danymi w canvas
     var chart = new Chart(ctx, {
     // Rodzaj wykresu, który chcemy stworzyć
@@ -109,7 +108,6 @@ function showForecast(list) {
 function handleSearch() {
     // pobierz nazwę miasta z pola input
     const text = searchInput.value;
-    console.log(text);
     if (text) {
     // wywołaj funkcję getWeather z nazwą miasta
         getWeather (text);
@@ -121,34 +119,6 @@ function addListenerToSearchButton() {
     var searchButton = document.getElementById("js_search-btn");
     // dodaj do elementu button funkcję handleSearch na evencie 'click'
     searchButton.addEventListener("click", handleSearch);
-}
-
-function hideInstruction() {
-    // schowaj instrukcję
-}
-
-function showErrorMessage() {
-    // pokaż error
-}
-
-function hideErrorMessage() {
-    // ukryj error
-}
-
-function hideLoader() {
-    // ukryj loader
-}
-
-function showLoader() {
-    // pokaż loader
-}
-
-function showResultsWrapper() {
-    // pokaż wrapper z wynikami
-}
-
-function hideResultsWrapper() {
-    // schowaj wrapper z wynikami
 }
 
 // wywołaj funkcję addListenerToSearchButton
